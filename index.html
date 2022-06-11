@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="#">
+    <script defer src="constants.js"></script>
+    <script type="module" src="view.js"></script>
+    <script type="module" src="controller_tetromino.js"></script>
+    <script type="module" src="controller_main.js"></script>
+    <script type="module" src="main.js"></script>
+    <title>TETRIS</title>
+</head>
+
+<body>
+    <div id="gameboy">
+        <div id="gameContainer">
+            <div id="canvasContainer">
+                <canvas id="myCanvas" width="250" height="500"></canvas>
+            </div>
+
+            <div id="gameStatusContainer">
+                <h2>TETRIS</h2>
+                <div id="maxScoreContainer">
+                    <p>Max Score</p>
+                    <p id="maxScore">0</p>
+                </div>
+
+                <div id="scoreContainer">
+                    <p>Score</p>
+                    <p id="score">0</p>
+                </div>
+
+                <div id="nextPieceContainer">
+                    <p>Next</p>
+                    <img id="nextPieceImg" src="">
+                </div>
+
+                <div class="gameover hidden">
+                    <p>GAME</p>
+                    <p>OVER</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="button_container">
+            <div id="control_container">
+                <button class="control_btn btn_up"></button>
+                <div class="leftRight">
+                    <button class="control_btn btn_left"></button>
+                    <button class="control_btn btn_middle hidden"></button>
+                    <button class="control_btn btn_right"></button>
+                </div>
+                <button class="control_btn btn_down"></button>
+            </div>
+            <button class="start" id="btn_start">START</button>
+        </div>
+    </div>
+    <p class="message">Keyboard controls: ↑ ↓ → ←</p>
+</body>
+
+</html>
