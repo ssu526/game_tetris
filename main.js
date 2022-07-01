@@ -1,4 +1,4 @@
-import Control from './controller_main.js'
+import Control from './Control.js'
 
 const game = new Control(document.querySelector("#gameboy"));
 game.start();

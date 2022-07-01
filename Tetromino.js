@@ -75,7 +75,7 @@ export default class Tetromino{
         let gameover = false;
         let additionalScore = 0;
 
-        // Lock the piece if the piece cannot go down anymore
+        // Lock the piece if the piece cannot go down anymore (The tetromino is drew on the canvas permanently)
         for(let r=0;r<this.activeTetromino.length;r++){
             for(let c=0;c<this.activeTetromino.length;c++){
                 if(this.activeTetromino[r][c]){
@@ -91,9 +91,11 @@ export default class Tetromino{
         }
 
     
-        // Check and remove full row when a piece is locked
+        // Check and remove full row after a piece is locked
         for(let r=0;r<ROWS;r++){
+
             let fullRow = true;
+
             for(let c=0;c<COLUMNS;c++){
                 if(gameboard[r][c]==VACANT_COLOR){
                     fullRow=false;
@@ -104,20 +106,24 @@ export default class Tetromino{
             if(fullRow){
                 additionalScore = additionalScore + FULL_ROW_SCORE;
     
+                // Starting from the bottom of the gameboard, replace a row with the row above it
                 for(let m=r;m>0;m--){
                     for(let n=0;n<COLUMNS;n++){
                         gameboard[m][n]=gameboard[m-1][n];
                     }
                 }
     
+                // Set the first row of the gameboard to vancant
                 for(let col=0;col<COLUMNS;col++){
                     gameboard[0][col]=VACANT_COLOR;
                 }
 
+                // Draw the updatd gameboard
                 view.drawGameboard(gameboard);
             }
         }
 
+        // Return the status of the game to controller
         return {gameboard, gameover, additionalScore}
     }    
 }

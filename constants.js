@@ -1,5 +1,3 @@
-const WIDTH = 250;
-const HEIGHT = 500;
 const COLUMNS = 10;
 const ROWS = 20;
 const SQ= 25;

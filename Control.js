@@ -1,5 +1,5 @@
-import View from '/view.js'
-import Tetromino from './controller_tetromino.js';
+import View from '/View.js'
+import Tetromino from './Tetromino.js';
 
 export default class Control{
     constructor(root){
@@ -15,6 +15,7 @@ export default class Control{
         this.view = new View(root, this._handlers());
     }
 
+    
     start(){
         this._reset();
         this._initGameboard();
@@ -24,14 +25,12 @@ export default class Control{
 
     _reset(){
         this.gameboard = [];
-
         this.score=0;
         this.view.setScore(this.score);
-
+        this.gameover=false;
         this.currentPiece = this._getRandomPiece();
         this.nextPiece = this._getRandomPiece();
         this.dropStartTime = Date.now();
-        this.gameover=false;
     }
 
 
@@ -44,21 +43,25 @@ export default class Control{
         }
     }
 
+
     _handleGameOver(){
         this.view.setButton("START", "rgb(88, 143, 88)"); //green
         this.view.showGameOverMessage();
     }
+
 
     _getRandomPiece(){
         this.nextPieceIndex = Math.floor(Math.random()*TETROMINOES.length);
         return new Tetromino(TETROMINOES[this.nextPieceIndex]);
     }
 
+
     _showNextPiece(){
         this.currentPiece=this.nextPiece;
         this.nextPiece=this._getRandomPiece();
         this.view.setNextPieceImg(IMAGES_SOURCE[this.nextPieceIndex]);
     }
+
 
     _handleLockedPiece(result){
         this.gameboard = result.gameboard;
