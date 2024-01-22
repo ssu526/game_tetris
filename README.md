@@ -1,7 +1,7 @@
 # Tetris
 A Tetris clone
 
-[Live Demo](https://famous-queijadas-e79014.netlify.app/)\
+[Live Demo](https://famous-queijadas-e79014.netlify.app/)
 
 
 ## Screenshot
